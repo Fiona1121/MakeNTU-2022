@@ -1,0 +1,12 @@
+{
+    "name": "MakeNTU-2022",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "RichieFu",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.17.3",
+        "mongoose": "^6.2.6",
+        "ws": "^8.5.0"
+    }
+}
