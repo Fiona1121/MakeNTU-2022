@@ -8,8 +8,9 @@ import socket
 class JetsonSocket:
     URL = "ws://192.168.10.12:4000"
 
-    def __init__(self, queue: list) -> None:
-        self.queue = queue
+    def __init__(self, mes2crtl: list, mesfromcrtl: list) -> None:
+        self.mes2crtl = mes2crtl
+        self.mesfromcrtl = mesfromcrtl
         self.connect = True  # maybe change state
         self.METHODS = {
             "turnLeft": turnLeft,
@@ -21,7 +22,7 @@ class JetsonSocket:
         }
 
         def turnLeft():
-            self.queue.append(
+            self.mes2crtl.append(
                 {
                     "command": "turnLeft",
                     "time": 1,  # sec
@@ -30,7 +31,7 @@ class JetsonSocket:
             )
 
         def turnRight():
-            self.queue.append(
+            self.mes2crtl.append(
                 {
                     "command": "turnRight",
                     "time": 1,  # sec
@@ -39,7 +40,7 @@ class JetsonSocket:
             )
 
         def goForward():
-            self.queue.append(
+            self.mes2crtl.append(
                 {
                     "command": "goForward",
                     "time": 1,  # sec
@@ -48,7 +49,7 @@ class JetsonSocket:
             )
 
         def goBackward():
-            self.queue.append(
+            self.mes2crtl.append(
                 {
                     "command": "goBackward",
                     "time": 1,  # sec
@@ -57,7 +58,7 @@ class JetsonSocket:
             )
 
         def terminate():
-            self.queue.append(
+            self.mes2crtl.append(
                 {
                     "command": "terminate",
                     # etc...
@@ -66,7 +67,7 @@ class JetsonSocket:
             self.connect = False
 
         def initiate():
-            self.queue.append(
+            self.mes2crtl.append(
                 {
                     "command": "initiate",
                     # etc...
@@ -88,8 +89,10 @@ class JetsonSocket:
         cmd, payload = self.parseServerData(message)
         if cmd in list(self.METHODS.keys()):
             self.METHODS[cmd](payload)
-            # TODO: add response
             print(f"[Connect] {cmd} is executed successfully")
+            # TODO: add response
+            # if len(self.mesfromcrtl) > 0:
+            #     self.send2Server(ws, self.mesfromcrtl.get_front())
         else:
             print(
                 f"[Error] {cmd} doesn't belongs to current exist methods {list(self.METHODS.keys())}"
@@ -107,17 +110,19 @@ class JetsonSocket:
 
     def on_open(self, ws):
         print(f"[Connect] {os.name} successfully connect to server")
-        ws.send(
-            json.dumps(
-                {
-                    "command": "boardInfo",
-                    "payload": {
-                        "type" "name": os.name,
-                        "ip": socket.gethostbyname(socket.gethostname()),
-                    },
-                }
-            )
+        self.send2Server(
+            ws,
+            {
+                "command": "boardInfo",
+                "payload": {
+                    "type" "name": os.name,
+                    "ip": socket.gethostbyname(socket.gethostname()),
+                },
+            },
         )
+
+    def send2Server(self, ws, mes):
+        ws.send(json.dumps(mes))
 
     # def on_close
     # def on_error
@@ -125,6 +130,11 @@ class JetsonSocket:
 
 # example usage
 if __name__ == "__main__":
-    eventQueue = []
-    jetsonSocket = JetsonSocket(eventQueue)
+    # socket puts message to this buffer, controller gets message from this buffer
+    # TODO: format alignment
+    mes2control = []
+    # socket gets message from this buffer, controller puts message to this buffer
+    # TODO: format alignment
+    mesfromcontrol = []
+    jetsonSocket = JetsonSocket(mes2crtl=mes2control, mesfromcrtl=mesfromcontrol)
     jetsonSocket.start()
