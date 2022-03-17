@@ -1,3 +1,4 @@
+# Model detection
 pip uninstall keras -y
 pip uninstall keras-nightly -y
 pip uninstall keras-Preprocessing -y
@@ -7,3 +8,6 @@ pip uninstall h5py -y
 pip install tensorflow==1.13.1
 pip install keras==2.0.8
 pip install h5py==2.10.0
+
+# RPisocket
+pip install websocket-client
