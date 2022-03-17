@@ -5,7 +5,7 @@ import time
 import socket
 
 
-class RPiSocket:
+class JetsonSocket:
     URL = "ws://192.168.10.12:4000"
 
     def __init__(self, queue: list) -> None:
@@ -79,6 +79,7 @@ class RPiSocket:
                 ws = websocket.WebSocketApp(
                     self.URL, on_message=self.on_message, on_open=self.on_open
                 )
+                ws.run_forever()
             except websocket.WebSocketException:
                 print(f"[Error] Failed connecting to {self.URL}, trying again...")
             time.sleep(3)
@@ -87,6 +88,7 @@ class RPiSocket:
         cmd, payload = self.parseServerData(message)
         if cmd in list(self.METHODS.keys()):
             self.METHODS[cmd](payload)
+            # TODO: add response
             print(f"[Connect] {cmd} is executed successfully")
         else:
             print(
@@ -124,5 +126,5 @@ class RPiSocket:
 # example usage
 if __name__ == "__main__":
     eventQueue = []
-    rpiSocket = RPiSocket(eventQueue)
-    rpiSocket.start()
+    jetsonSocket = JetsonSocket(eventQueue)
+    jetsonSocket.start()
