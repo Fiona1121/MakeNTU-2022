@@ -3,8 +3,8 @@ import os
 import cv2
 from multiprocessing import Array
 
-from inc.model import MaskRCNN
-from inc.config import Config
+from model import MaskRCNN
+from config import Config
 
 
 class Detector:
@@ -33,14 +33,14 @@ class Detector:
 
         args = {
             "command": "test",
-            "model": "./models/logs/mask_rcnn_taco_0100.h5",
+            "model": "./models/mask_rcnn_taco_0100.h5",
             # "dataset": "../../data",
             "class_map": "./taco_config/map_10.csv",
             "round": 0,
         }
         print("Command: ", args["command"])
         print("Model: ", args["model"])
-        print("Dataset: ", args["dataset"])
+        # print("Dataset: ", args["dataset"])
 
         class TacoTestConfig(Config):
             NAME = "taco"
@@ -48,6 +48,7 @@ class Detector:
             IMAGES_PER_GPU = 1
             DETECTION_MIN_CONFIDENCE = 10
             USE_OBJECT_ZOOM = False
+            NUM_CLASSES = 11
 
         config = TacoTestConfig()
         config.display()
@@ -117,4 +118,4 @@ if __name__ == "__main__":
         baseline=10,  # The distance between two camera (cm)
         height=60,  # The distance between camera and ground (cm)
     )
-    detector.start()
+    # detector.start()

@@ -1,0 +1,145 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 7 files
+Detected 0 issues that require attention
+--------------------------------------------------------------------------------
+================================================================================
+Detailed log follows:
+
+================================================================================
+================================================================================
+Input tree: 'Jetson'
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'Jetson/detector.py'
+ outputting to 'Jetson_v2/detector.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'Jetson/jetsonsocket.py'
+ outputting to 'Jetson_v2/jetsonsocket.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'Jetson/main.py'
+ outputting to 'Jetson_v2/main.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'Jetson/inc/config.py'
+ outputting to 'Jetson_v2/inc/config.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'Jetson/inc/visualize.py'
+ outputting to 'Jetson_v2/inc/visualize.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'Jetson/inc/model.py'
+ outputting to 'Jetson_v2/inc/model.py'
+--------------------------------------------------------------------------------
+
+253:41: INFO: Added keywords to args of function 'tf.shape'
+305:55: INFO: Added keywords to args of function 'tf.shape'
+306:24: INFO: Added keywords to args of function 'tf.pad'
+321:11: INFO: Renamed 'tf.log' to 'tf.math.log'
+321:23: INFO: Renamed 'tf.log' to 'tf.math.log'
+363:17: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+405:44: INFO: Added keywords to args of function 'tf.shape'
+412:43: INFO: Added keywords to args of function 'tf.shape'
+426:50: INFO: Added keywords to args of function 'tf.shape'
+428:26: INFO: Added keywords to args of function 'tf.shape'
+443:32: INFO: Added keywords to args of function 'tf.shape'
+443:53: INFO: Added keywords to args of function 'tf.shape'
+451:23: INFO: Added keywords to args of function 'tf.shape'
+462:19: INFO: Added keywords to args of function 'tf.boolean_mask'
+464:18: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+470:15: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+471:19: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+483:20: INFO: Added keywords to args of function 'tf.reduce_max'
+487:18: INFO: Added keywords to args of function 'tf.reduce_max'
+490:23: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+492:23: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+497:23: INFO: Renamed 'tf.random_shuffle' to 'tf.random.shuffle'
+498:21: INFO: Added keywords to args of function 'tf.shape'
+504:23: INFO: Renamed 'tf.random_shuffle' to 'tf.random.shuffle'
+511:28: INFO: Added keywords to args of function 'tf.argmax'
+522:38: INFO: Added keywords to args of function 'tf.transpose'
+540:26: INFO: Added keywords to args of function 'tf.shape'
+560:8: INFO: Added keywords to args of function 'tf.shape'
+561:49: INFO: Added keywords to args of function 'tf.shape'
+562:11: INFO: Added keywords to args of function 'tf.pad'
+563:19: INFO: Added keywords to args of function 'tf.pad'
+564:23: INFO: Added keywords to args of function 'tf.pad'
+565:13: INFO: Added keywords to args of function 'tf.pad'
+566:12: INFO: Added keywords to args of function 'tf.pad'
+612:16: INFO: Added keywords to args of function 'tf.argmax'
+628:11: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+632:24: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+636:24: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+637:15: INFO: Renamed 'tf.sets.set_intersection' to 'tf.sets.intersection'
+640:15: INFO: Renamed 'tf.sparse_tensor_to_dense' to 'tf.sparse.to_dense'
+653:14: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+664:47: INFO: Added keywords to args of function 'tf.shape'
+665:21: INFO: Added keywords to args of function 'tf.pad'
+674:35: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+676:11: INFO: Renamed 'tf.sets.set_intersection' to 'tf.sets.intersection'
+679:11: INFO: Renamed 'tf.sparse_tensor_to_dense' to 'tf.sparse.to_dense'
+685:30: INFO: Added keywords to args of function 'tf.shape'
+690:30: INFO: Added keywords to args of function 'tf.shape'
+699:12: INFO: Changed tf.to_float call to tf.cast(..., dtype=tf.float32).
+707:43: INFO: Added keywords to args of function 'tf.shape'
+708:17: INFO: Added keywords to args of function 'tf.pad'
+803:58: INFO: Added keywords to args of function 'tf.shape'
+819:50: INFO: Added keywords to args of function 'tf.shape'
+998:14: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+1010:8: INFO: Added keywords to args of function 'tf.size'
+1028:14: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+1046:8: INFO: Added keywords to args of function 'tf.size'
+1067:21: INFO: Added keywords to args of function 'tf.argmax'
+1083:11: INFO: Added keywords to args of function 'tf.reduce_sum'
+1083:33: INFO: Added keywords to args of function 'tf.reduce_sum'
+1101:22: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+1115:8: INFO: Added keywords to args of function 'tf.size'
+1134:17: INFO: Added keywords to args of function 'tf.shape'
+1136:17: INFO: Added keywords to args of function 'tf.shape'
+1141:17: INFO: Added keywords to args of function 'tf.transpose'
+1145:18: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+1158:8: INFO: Added keywords to args of function 'tf.size'
+1180:17: INFO: Added keywords to args of function 'tf.shape'
+1182:17: INFO: Added keywords to args of function 'tf.shape'
+1187:17: INFO: Added keywords to args of function 'tf.transpose'
+1191:18: INFO: Renamed 'tf.where' to 'tf.compat.v1.where'
+1204:8: INFO: Added keywords to args of function 'tf.size'
+2220:19: INFO: Added keywords to args of function 'tf.reduce_mean'
+2230:22: INFO: Added keywords to args of function 'tf.size'
+2247:19: INFO: Added keywords to args of function 'tf.reduce_mean'
+2911:24: INFO: Added keywords to args of function 'tf.reduce_sum'
+2912:12: INFO: Added keywords to args of function 'tf.boolean_mask'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'Jetson/inc/utils.py'
+ outputting to 'Jetson_v2/inc/utils.py'
+--------------------------------------------------------------------------------
+
+205:9: INFO: Renamed 'tf.log' to 'tf.math.log'
+206:9: INFO: Renamed 'tf.log' to 'tf.math.log'
+--------------------------------------------------------------------------------
+
